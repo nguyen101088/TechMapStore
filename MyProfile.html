@@ -1,0 +1,135 @@
+<div class="contentHomeRegister" ng-controller="MyProfileViewController" ng-init="init()">	
+	<div class="container" style="padding: 0px;height: 616px;overflow-y: auto;background-color: black;">
+		<div class="row">
+			<div class="col-lg-3 col-sm-6" style="padding: 0px;">
+				<div class="card hovercard" style="padding-top: 50px;">
+					<div ng-style="{'background-image': 'url(' + urlImageUserProfile + ')'}" 
+						style="position: relative;top: -50px;left: 135px;margin-bottom: -50px;width: 100px;height: 100px;
+							max-width: 100px;max-height: 100px;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;
+							border: 2px solid white;background-position: center center;background-size: 100%;">
+					</div>
+					<div class="info" style="text-transform: none;">
+						<div class="title" style="margin-left: 50px;">
+							{{member.FirstName}} - {{member.LastName}}
+							<ul style="width: 15%;display: inline-block;height: 10px;float: right;">
+								<li class="dropdown" style="margin-top: -5px;margin-left: 60%;"> 
+									<a class="dropdown-toggle" data-toggle="dropdown">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar" style="width: 25%;  display: block;  height: 6px;  margin: 5px 0 0 0;background-color: #fff;border-radius: 50%;" />
+										<span class="icon-bar" style="width: 25%;  display: block;  height: 6px;  margin: 5px 0 0 0;  background-color: #fff;border-radius: 50%;" />
+										<span class="icon-bar" style="width: 25%;  display: block;  height: 6px;  margin: 5px 0 0 0;  background-color: #fff;border-radius: 50%;" />
+									</a><div class="dropdown-backdrop"></div>
+									<ul class="dropdown-menu" style="background-color:black;top: 36%;right: 1%;left: inherit;position: fixed;">
+										<li style="margin: 0;"><a href="" style="color: #fff;font-weight: 600;" ng-click="GoToEditProfile()">Edit Profile</a></li>
+										<li style="margin: 0;"><a href="" style="color: #fff;font-weight: 600;">Change Location</a></li>
+										<li style="margin: 0;"><a href="" style="color: #fff;font-weight: 600;">Change Notification</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="desc" style="font-size:14px;">{{member.Company}}</div>
+						<div class="desc" style="font-size:14px;">{{member.Country}}, {{member.City}}</div>
+						<div class="desc" style="font-size:14px;" ng-if="member.StartupRole == 'Entrepreneur'">
+							<label class="userProfile-startupRole-Entrepreneur">{{member.StartupRole}}</label>
+						</div>
+						<div class="desc" style="font-size:14px;" ng-if="member.StartupRole == 'Investor' || member.StartupRole == 'Mentor'">
+							<label class="userProfile-startupRole-Mentor">{{member.StartupRole}}</label>
+						</div>
+						<div class="desc" style="font-size:14px;" ng-if="member.StartupRole == 'Developer' || member.StartupRole == 'Designer'
+							|| member.StartupRole == 'Engineer'">
+							<label class="userProfile-startupRole-Developer">{{member.StartupRole}}</label>
+						</div>
+						<div class="desc" style="font-size:14px;" ng-if="member.StartupRole == 'Marketing' || member.StartupRole == 'Media'
+							|| member.StartupRole == 'Student' || member.StartupRole == 'Other'">
+							<label class="userProfile-startupRole-Other">{{member.StartupRole}}</label>
+						</div>
+						<div class="desc" style="font-size:14px;margin-top: 5px;" ng-click="GoToMemberShip()">
+							<label class="userProfile-hireme-button">Hire me</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row row-1" style="
+					border: 1px solid;
+					margin-left: 5px;
+					margin-right: 5px;
+					border-radius: 5px;
+					background-color: white;
+					padding: 15px 20px;
+					margin-top: 2px;
+					text-transform: none;" ng-if="member.Bio.length > 0">
+					<div class="row row-1" style="font-weight: bold;font-size: 18px;">ABOUT</div>
+					<div class="row row-2" style="padding: 15px 0px;"> {{member.Bio}}</div>
+				</div>
+				<div class="row row-2" style="
+					border: 1px solid;
+					margin-left: 5px;
+					margin-right: 5px;
+					margin-top: 20px;
+					border-radius: 5px;
+					background-color: white;
+					padding: 15px 20px;
+					text-transform: none;" ng-if="isTwitter == true || isLinkedIn == true || isFaceBook == true">
+					<div class="row row-1" style="font-weight: bold;font-size: 18px;">CONTACT</div>
+					<div class="row row-2" style="margin-top: 10px;">
+						<div class="bottom">
+							<a class="btn btn-primary btn-twitter btn-sm btn-link-user-profile" 
+							href="{{urlTwitterUserProfile}}" ng-if="isTwitter">
+								<i class="fa fa-twitter" style="margin-left: -2px;"></i>
+							</a>
+							<a class="btn btn-danger btn-sm btn-link-user-profile" rel="publisher"
+							href="{{urlLinkedInUserProfile}}" ng-if="isLinkedIn">
+								<i class="fa fa-linkedin" style="margin-left: -2px;"></i>
+							</a>
+							<a class="btn btn-primary btn-sm btn-link-user-profile" rel="publisher"
+							href="{{urlFacebookUserProfile}}" ng-if="isFaceBook">
+								<i class="fa fa-facebook" style="margin-left: -2px;"></i>
+							</a>
+						</div>
+					</div>
+					<!--<div class="row row-2" style="padding: 15px 0px 0px 0px;"> Personal profile </div>
+					<div class="row row-3">
+						<a href="{{urlLinkedInUserProfile}}" style="color: #888888">{{urlLinkedInUserProfile}}</a>
+					</div>-->
+				</div>
+				
+				<div class="row row-3" style="
+						border: 1px solid;
+						margin-left: 5px;
+						margin-right: 5px;
+						margin-top: 20px;
+						margin-bottom: 5px;
+						border-radius: 5px;
+						background-color: white;
+						text-transform: none;
+					">
+					<div class="row row-1" style="font-weight: bold;font-size: 18px;padding: 15px 20px;">I WORK AT</div>
+					<div class="row row-2">
+						<div class="sidebar-message">
+							<a href="{{urlCompany}}">
+								<div class="pull-left text-center img-circle company-avatar" 
+									ng-style="{'background-image': 'url(' + urlImageCompany + ')'}"
+									style="width: 50px;height: 50px;max-width: 50px;max-height: 50px;
+									border-radius: 50%;background-position: center center;background-size: 100%;"
+									ng-if="isCompany">
+								</div>
+								<div class="media-body">{{member.Company}}<br>
+									<small class="text-muted"><i class="fa fa-map-marker" style="margin-right: 5px;"></i>{{member.Country}}, {{member.City}}</small>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--<div class="row row-3" style="padding: 15px 20px;">
+						<div style="color: #888888;font-size: 16px;"> I work it </div>
+						<div ng-style="{'background-image': 'url(' + urlImageUserProfile + ')'}" 
+							style="position: relative;width: 50px;height: 50px;
+								max-width: 50px;max-height: 50px;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;
+								border: 2px solid white;background-position: center center;background-size: 100%;">
+						</div>
+					</div>-->
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

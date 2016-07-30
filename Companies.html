@@ -1,0 +1,36 @@
+<div class="contentHomeRegister" ng-controller="CompaniesViewController" ng-init="init()">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav" style="margin-bottom: 0px;">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="row row-1" style="height:40px;">
+					<button type="submit" style="float:left;position: relative;margin-left: 3%;padding: 0px;margin-right: 0px;" ng-click="GoToHome()">
+						<i class="fa fa-arrow-left"></i>
+					</button>
+					<div style="text-align: center;">
+						<label style="margin-top: 4%;text-transform: none;color: white;font-size: 20px;"> Companies </label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--wrap the page content do not style this-->
+	<div id="page-content" style="padding-top: 0px;overflow-y: scroll;height: 565px;">
+		<div class="container" style="padding-left: 0px;padding-right: 0px;">
+			<div>
+				<div class="sidebar-message" style="float: left;width: 100%;padding: 0;" ng-repeat="company in companies" ng-click="GoToCompanyDetail({{company}})">
+					<div class="pull-left text-center" ng-style="{'background-image': 'url(' + company.ImagePath + ')'}" style="
+						background-repeat: no-repeat;height: 113px;width: 110px;border-radius: 0%;
+						border-bottom: 1px solid #e3e3e3;border-right: 1px solid #e3e3e3;padding-top: 1px;background-position: center center;background-size: 100%;" />
+					<div class="media-body" style="padding-left: 10px;border-bottom: 1px solid #e3e3e3;position: relative;height: 113px;">
+						<label style="padding-top: 40px;text-transform: uppercase;">{{company.Name}}</label>
+						<br>
+						<label style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;width: 100%;color: #888888;font-weight: normal;display: inline-block;position: absolute;padding-right: 15px;padding-bottom: 10px;">{{company.Address}}</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /#page-content -->
+</div>

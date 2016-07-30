@@ -1,0 +1,175 @@
+<div class="contentHomeRegister" ng-controller="EventDetailViewController" ng-init="init()">	
+	<div class="container" style="padding: 0px;height: 616px;overflow-y: auto;background-color: #888888;">
+		<div class="row">
+			<div class="col-lg-3 col-sm-6" style="padding: 0px;">
+				<div class=" row card hovercard" style="position:relative;">
+					<div class="row row-1 cardheader" ng-style="{'background-image': 'url(' + urlImageBackgroundEvent + ')'}" 
+						style="height: 200px;position:relative;background-size: 100%;background-position: center center;">
+					</div>
+					<div class="row row-2" style="
+						position: absolute;
+						background-color: orange;
+						padding: 5px;
+						font-size: 14px;
+						top: 70px;
+						margin-left: 15px;
+						color: white;
+					">{{eventData.EventDate}}</div>
+					<div class="row row-3" style="
+						position: absolute;
+						background-color: gray;
+						padding: 5px;
+						top: 96px;
+						margin-left: 15px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+						width: 95%;
+						font-size: 18px;
+						color: white;
+						font-weight: bold;
+						text-align: left;
+					">{{eventData.EventName}}</div>
+					<div class="row row-4" style="
+						position: absolute;
+						background-color: gray;
+						padding: 5px;
+						font-size: 14px;
+						top: 126px;
+						margin-left: 15px;
+						color: white;
+					">{{eventData.EventStart}} - {{eventData.EventEnd}}</div>
+				</div>
+				
+				<div class="row row-1" style="margin-left: 3%;margin-right: 3%;
+											background-color: white;text-transform: none;">
+					<div class="row row-1" ng-if="eventData.EventAttendees.length > 0" style="font-weight: 600;font-size: 16px;height: 40px;border-bottom: 1px solid #888888;text-align: center;vertical-align: middle;padding-top: 3%;">{{countAttending}} OTHERS ATTENDING</div>
+					<div class="row row-2" ng-if="eventData.EventAttendees.length == 0" style="font-weight: 600;font-size: 16px;height: 40px;border-bottom: 1px solid #888888;text-align: center;vertical-align: middle;padding-top: 3%;">BE THE FIRST TO ATTEND</div>
+					<div class="row row-3" ng-if="eventData.EventAttendees.length > 0 && eventData.EventAttendees.length == 1" style="padding-bottom: 15px;">
+						<div class="sidebar-message" style="padding: 15px 15px;" >
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile1 + ')'}" 
+									style="margin-left: 40%;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+						</div> 
+					</div>
+					<div class="row row-4" ng-if="eventData.EventAttendees.length > 0 && eventData.EventAttendees.length == 2" style="padding-bottom: 15px;">
+						<div class="sidebar-message" style="padding: 15px 15px;">
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile1 + ')'}" 
+								style="margin-left: 25%;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile2 + ')'}" 
+								style="margin-left: 5%;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+						</div> 
+					</div>
+					<div class="row row-5" ng-if="eventData.EventAttendees.length > 0 && eventData.EventAttendees.length == 3" style="padding-bottom: 15px;">
+						<div class="sidebar-message" style="padding: 15px 15px;">
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile1 + ')'}" 
+								style="margin-left: 25px;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile2 + ')'}" 
+								style="margin-left: 30px;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile3 + ')'}" 
+								style="float: right !important;margin-right: 25px;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+						</div>
+					</div>
+					<div class="row row-6" ng-if="eventData.EventAttendees.length > 4" style="padding-bottom: 15px;">
+						<div class="sidebar-message" style="padding: 15px 15px;">
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile1 + ')'}" 
+								style="height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile2 + ')'}" 
+								style="margin-left: 22px;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile3 + ')'}" 
+								style="margin-left: 22px;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+							<div class="pull-left text-center" ng-style="{'background-image': 'url(' + urlImageUserProfile4 + ')'}" 
+								style="float: right !important;margin-right: 0px;height: 60px;width: 60px;border-radius: 50%;
+									background-position: center center;background-size: 100%;" ng-click="GoToAttendees()">
+							</div>
+						</div>
+					</div>
+					<!--<div class="row row-3" style="position: absolute;top: 175px;right: 15px;">
+						<img alt="" style="background-size: cover;background-repeat: no-repeat;height: 50px;width: 50px;border-radius: 50%;cursor: pointer;" src="img/calendar-icon.png">
+					</div>-->
+				</div>
+				<div class="row row-2" ng-if="eventData.IsFree == false" style="margin-left: 3%;margin-right: 3%;
+							margin-top: 20px;background-color: white;text-transform: none;">
+					<div class="row row-1" style="  font-size: 16px;  height: 40px;  
+								border-bottom: 1px solid #888888;  text-align: center;  
+								vertical-align: middle;  padding-top: 3%;color: black; font-weight: bold;">TICKET INFORMATION</div>
+					<div class="row row-2" style="padding: 15px 10px;color: black;">
+						<div class="row">
+							<div class="row row 1" style="font-weight: bold;">
+								<div class="col-xs-2">TYPE</div>
+								<div class="col-xs-4">SALES END</div>
+								<div class="col-xs-3">PRICE</div>
+								<div class="col-xs-3">QUANTITY</div>
+							</div>
+							<div class="row row 2" style="margin-top: 20px;margin-bottom: 20px;height: 40px;font-size: 15px;">
+								<div class="col-xs-2" style="text-align: center;padding-top: 15px;">{{ticketType}}</div>
+								<div class="col-xs-4" style="text-align: center;padding-top: 15px;">{{eventData.EventEnd}}</div>
+								<div class="col-xs-3" style="text-align: center;padding-top: 15px;">{{eventCost}}</div>
+								<div class="col-xs-3">
+									<input id="Quantity" name="Quantity" 
+										style="width: 69px;border: 1px solid #e3e3e3;border-radius: 4px;
+										height: 40px;text-align: center;" type="number" value=""
+										ng-model="quantity" ng-change="quantityChange(quantity)">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row row-3">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label" 
+									style="display: inline-block;margin-left: 20px;margin-right: 0px;
+									padding-right: 0px;width: 93px;text-align: right;padding-left: 0px;
+									font-weight: normal;font-size: 15px;">Promo Code:</label>
+							<div class="col-sm-10" style="display: inline-block;margin-left: 0px; width: 40%;">
+								<input type="text" class="form-control-register"  style="margin: 0px;" ng-model="promoCode" ng-change="promoCodeChange(promoCode)">
+							</div>
+						</div>
+					</div>
+					<div class="row row-4">
+						<button type="submit" class="btn" style="width: 80px;height: 50px;margin-bottom: 30px;
+							float: left;margin-left: 25px;text-transform: none;font-size: 20px;
+							border: 1px solid #6F9B63;background: #6F9B63;box-shadow: none;
+							position: relative;" ng-click="GoToOrderSummary(ticketType, eventCost, eventData.EventDate, eventData.EventName,eventData.EventStart,eventData.EventEnd,urlImageBackgroundEvent)">RSVP</button>
+					</div>
+				</div>
+				<div class="row row-3" style="margin-left: 3%;margin-right: 3%;margin-top: 20px;background-color: white;text-transform: none;">
+					<div class="row row-1" style="  font-size: 16px;  height: 40px;  
+								border-bottom: 1px solid #888888;  text-align: center;  
+								vertical-align: middle;  padding-top: 3%;color: black;">ABOUT</div>
+					<div class="row row-2" style="padding: 15px 10px;color: black;">
+						{{eventData.EventDescription}}
+					</div>
+				</div>
+				<div class="row row-4" style="margin-left: 3%;margin-right: 3%;margin-top: 20px;background-color: white;text-transform: none;">
+					<div class="row row-1" style="font-weight: 700;font-size: 18px;padding: 20px 15px;">{{eventData.Location}}<!-- Empire State, 6th Floor --></div>
+					<div class="row row-2" style="padding-left: 15px;color: #888888;font-size: 13px;padding-bottom: 15px;">
+						{{eventData.Address}}
+						<br>
+						{{eventData.City}}
+					</div>
+					<div class="row row-3" style="width:100%; height:210px">
+						<div id="map" style="width:100%; height:100%"></div>
+					</div>
+				</div>
+				<div class="row" style="background-color: #888888;height: 20px"></div>
+			</div>
+		</div>
+	</div>
+</div>

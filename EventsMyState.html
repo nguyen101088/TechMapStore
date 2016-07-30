@@ -1,0 +1,74 @@
+<div class="contentHomeRegister" ng-controller="EventsMyStateViewController" ng-init="init()">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav" style="margin-bottom: 0px;height: 80px;border-bottom: 3px solid orange;">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="row row-1" style="height:40px;">
+					<div style="
+						color: white;
+						font-size: 20px;
+						text-transform: none;
+						text-align: center;
+						padding-top: 15px;
+						font-weight: bold;
+					"> Events</div>
+				</div>
+				<div class="row row-2" style="height:40px;">
+					<ul class="nav nav-tabs" style="margin: 0px;height: 40px;">
+						<li role="presentation" class="active" style="color: white;width: 50%;text-align: center;vertical-align: middle;padding: 0px;font-weight: 800;" ng-click="GoEventsGlobal()">GLOBAL</li>
+						<li role="presentation" class="active" style="color: white;width: 50%;text-align: center;vertical-align: middle;padding: 0px;font-weight: 800;">MY STATE</li>
+					</ul>
+				</div>
+				<div class="row-3" style="width: 50%;margin-top: 26%;margin-left: 50%;border: 2px solid orange;top: -100px;position: relative;" />
+			</div>
+		</div>
+	</div>
+
+	<!--wrap the page content do not style this-->
+	<div id="page-content" style="overflow-y: scroll;height: 548px;position: fixed;margin: 0px;padding: 0px;width: 100%;">
+		<div>
+			<div style="height: 200px;margin-top: 5px;margin-bottom: 0;border: 1px solid gray;" ng-repeat="eventMyState in datasMyState | limitTo: paginationLimit()"> 
+				<div class="row" style="position:relative;" ng-click="GoToEventDetail({{eventMyState}})">
+					<div class="row row-1" ng-style="{'background-image': 'url(' + eventMyState.Image + ')'}"
+						style="height: 200px;position:relative;background-size: 100%;background-position: center center;"></div>
+					<div class="row row-2" style="
+						position: absolute;
+						background-color: orange;
+						padding: 5px;
+						font-size: 14px;
+						top: 70px;
+						margin-left: 15px;
+						color: white;">{{eventMyState.EventDate}}</div>
+					<div class="row row-3" style="
+						position: absolute;
+						background-color: gray;
+						padding: 5px;
+						top: 96px;
+						margin-left: 15px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+						width: 95%;
+						font-size: 18px;
+						color: white;
+						font-weight: bold;
+						text-align: left;
+					">{{eventMyState.EventName}}</div>
+					<div class="row row-4" style="
+						position: absolute;
+						background-color: gray;
+						padding: 5px;
+						font-size: 14px;
+						top: 126px;
+						margin-left: 15px;
+						color: white;
+					">{{eventMyState.EventStart}} - {{eventMyState.EventEnd}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="pagination pagination-centered" style="width: 100%; margin-top: 0px !important;margin-bottom: 15px !important;">
+			<button class="show-more-btn btn" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">Load more</button>
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /#page-content -->
+</div>

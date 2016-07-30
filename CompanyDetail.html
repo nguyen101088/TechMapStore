@@ -1,0 +1,60 @@
+<div class="contentHomeRegister" ng-controller="CompanyDetailViewController" ng-init="init()">	
+	<div class="container company-content">
+		<div class="row">
+			<div class="col-lg-3 col-sm-6" style="padding: 0px;">
+
+				<div class="card hovercard" style="padding-top: 53px;">
+					<!--<div class="cardheader">
+						<img alt="" style="height: 135px;background-size: cover;" src="img/background-image.jpg">
+					</div>-->
+					<div ng-style="{'background-image': 'url(' + urlImageUserProfile + ')'}" class="company-background-image">
+					</div>
+					<div class="info row" style="text-transform: none;position:relative;">
+						<div class="row row-1" style="color: white;font-size: 18px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+							{{company.Name}}
+						</div>
+						<div class="row row-2 desc">
+							{{company.Address}}, {{company.City}}
+						</div>
+						<!--<div class="row row-3" style="position:absolute;top: -3px;right: 15px;font-size: 30px;color: white;">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>	
+						</div>-->
+					</div>
+				</div>
+				<div class="row row-1 company-description">
+					<div class="row row-1" style="font-weight: bold;font-size: 18px;">WHAT WE DO</div>
+					<div class="row row-2" style="padding: 15px 0px;"> {{company.Description}}</div>
+				</div>
+				<div class="row row-2 company-contact">
+					<div class="row row-1" style="font-weight: bold;font-size: 18px;">CONTACT</div>
+					<!--<div class="row row-2" style="padding: 15px 0px 0px 0px;    font-size: 17px;"> Email </div>
+					<div class="row row-3" style="color: #428bca;">
+						<a href="mailto:{{company.Email}}?Subject=Send%20email" target="_top">{{company.Email}}</a>
+					</div>-->
+					<div class="row row-2" style="padding: 15px 0px 0px 0px;font-size: 15px;"> Visit our: </div>
+					<div class="row row-3">
+						<a class="btn btn-primary btn-sm btn-link-user-profile" rel="publisher" 
+							href="{{company.Url}}" style="background-color: #888888;">
+								<i class="fa fa-home" style="margin-left: -4px;"></i>
+							</a>
+						<!--<a href="{{urlLinkedInUserProfile}}" style="color: #888888;">{{company.Url}}</a>-->
+					</div>
+				</div>
+				<div class="row row-3 company-detail-map">
+					<div id="map" style="width:100%; height:100%"></div>
+				</div>
+				<!--<div class="row row-4 company-work-with">
+					<div class="row row-1" style="padding: 15px 20px;">
+						<div style="color: #888888;font-size: 16px;"> I work it </div>
+						<div ng-style="{'background-image': 'url(' + urlImageUserProfile + ')'}" 
+							style="position: relative;width: 50px;height: 50px;
+								max-width: 50px;max-height: 50px;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;
+								border: 2px solid white;background-position: center center;background-size: 100%;">
+						</div>
+					</div>
+				</div>-->
+			</div>
+
+		</div>
+	</div>
+</div>

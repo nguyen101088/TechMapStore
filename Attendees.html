@@ -1,0 +1,42 @@
+<div class="contentHomeRegister" ng-controller="AttendeesViewController" ng-init="init()">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav" style="margin-bottom: 0px;">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="row row-1" style="height:40px;">
+					<div style="
+						color: white;
+						font-size: 20px;
+						text-transform: none;
+						text-align: center;
+						padding-top: 15px;
+						font-weight: bold;
+					"> Attendees</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--wrap the page content do not style this-->
+	<div id="page-content" style="padding-top: 0px;overflow-y: scroll;height: 565px;overflow-x: hidden;">
+		<div class="container" style="padding: 0;">
+			<div>
+				<div class="row" ng-repeat="attendee in attendees">
+					<div class="row row-1">
+						<div class="row user-information" ng-click="GoToUserProfile(attendee.User)">
+							<div class="col-xs-4 user-image" ng-style="{'background-image': 'url(' + attendee.User.ProfilePhoto + ')'}" />
+							<div class="col-xs-8 media-body user-title-name-address">
+								{{attendee.User.FirstName}} {{attendee.User.LastName}}
+								<br>
+								<small class="text-muted lable-title-address">{{attendee.User.JobTitle}}</small>
+								<br>
+								<small class="text-muted lable-title-address"><i class="fa fa-map-marker" style="margin-right: 5px;"></i>{{attendee.User.City}}, {{attendee.User.Country}}</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /#page-content -->
+</div>

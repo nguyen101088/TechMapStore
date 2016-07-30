@@ -1,0 +1,81 @@
+<div class="contentHomeRegister" ng-controller="EventOrderSummaryViewController" ng-init="init()">	
+	<div class="container" style="padding: 0px;height: 616px;overflow-y: auto;background-color: #888888;">
+		<div class="row">
+			<div class="col-lg-3 col-sm-6" style="padding: 0px;">
+				<div class=" row card hovercard" style="position:relative;">
+					<div class="row row-1 cardheader" ng-style="{'background-image': 'url(' + urlImageBackgroundEvent + ')'}" 
+						style="height: 200px;position:relative;background-size: 100%;background-position: center center;">
+					</div>
+					<div class="row row-2" style="
+						position: absolute;
+						background-color: orange;
+						padding: 5px;
+						font-size: 14px;
+						top: 70px;
+						margin-left: 15px;
+						color: white;
+					">{{eventDate}}</div>
+					<div class="row row-3" style="
+						position: absolute;
+						background-color: gray;
+						padding: 5px;
+						top: 96px;
+						margin-left: 15px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+						width: 95%;
+						font-size: 18px;
+						color: white;
+						font-weight: bold;
+						text-align: left;
+					">{{eventName}}</div>
+					<div class="row row-4" style="
+						position: absolute;
+						background-color: gray;
+						padding: 5px;
+						font-size: 14px;
+						top: 126px;
+						margin-left: 15px;
+						color: white;
+					">{{eventStart}} - {{eventEnd}}</div>
+				</div>
+				<div class="row row-1" style="margin-left: 3%;margin-right: 3%;margin-top: 20px;background-color: white;text-transform: none;">
+					<div class="row row-1" style="  font-size: 16px;  height: 40px;  
+								border-bottom: 1px solid #888888;  text-align: center;  
+								vertical-align: middle;  padding-top: 3%;color: black; font-weight: bold;">Order Summary</div>
+					<div class="row row-2" style="padding: 15px 10px;color: black;">
+						<div class="row">
+							<div class="row row 1" style="font-weight: bold;">
+								<div class="col-xs-3" style="text-align: left;">TYPE</div>
+								<div class="col-xs-3" style="text-align: left;">PRICE</div>
+								<div class="col-xs-3" style="text-align: left;">QUANTITY</div>
+								<div class="col-xs-3" style="text-align: left;">SUBTOTAL</div>
+							</div>
+							<div class="row row 2" style="margin-top: 20px;margin-bottom: 20px;height: 40px;font-size: 15px;">
+								<div class="col-xs-3" style="text-align: left;padding-top: 15px;">{{ticketType}}</div>
+								<div class="col-xs-3" style="text-align: left;padding-top: 15px;">{{eventCost}}</div>
+								<div class="col-xs-3" style="text-align: left;padding-top: 15px;">{{quantityOrder}}</div>
+								<div class="col-xs-3" style="text-align: left;padding-top: 15px;">{{eventCost * quantityOrder}}</div>
+							</div>
+                            <div class="row row-3" style="float: right;font-size: 15px;margin-right: 20px;">Total: {{eventCost * quantityOrder}}$</div>
+						</div>
+					</div>
+					<div class="row row-3" style="float: right;">
+						<button type="submit" class="btn" style="
+							width: 120px;
+							height: 50px;
+							margin-bottom: 25px;
+							text-transform: none;
+							font-size: 20px;
+							border: 1px solid #6F9B63;
+							background: #6F9B63;
+							box-shadow: none;
+							position: relative;
+							" ng-click="GoToOrderSummary()">Order Now</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

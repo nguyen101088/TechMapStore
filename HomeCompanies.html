@@ -1,0 +1,81 @@
+<div class="contentHomeRegister" id="map-view-partial" ng-controller="HomeCompaniesController" ng-init="init()">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav" style="margin-bottom: 0px;">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="row row-1">
+					<label style="width: 100%; text-transform:none;margin-top: 4%;color: white;font-size: 18px;font-weight: 700;text-align: center;"> Companies </label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="page-content" style="padding-top: 0px;">
+		<div class="container" style="padding-left: 0px;padding-right: 0px;">
+			<article class="col-sm-12 sortable-grid ui-sortable" style="padding-left: 0px;padding-right: 0px;">
+			<!-- new widget -->
+				<div class="jarviswidget jarviswidget-sortable" id="wid-id-0" data-widget-togglebutton="false"
+					 data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false"
+					 data-widget-deletebutton="false" role="widget" style="height:566px;overflow-y:scroll;text-transform:none;overflow-x: hidden;">
+					<header role="heading" style="height: 40px;">
+						<ul class="nav nav-tabs pull-right in" id="myTab" style="width: 100%;background: #f9f9f9">
+						  <li class="active" style="width: 50%;text-align: center;margin-top: 0px;margin-bottom: 0px;">
+							<a data-toggle="tab" data-content="tab-content-1" ng-click="onTabChange($event)" style="padding-left: 1px;padding-right: 1px;">
+							  <span style="color:rgb(0, 176, 240);">BUILDING</span></a>
+						  </li>
+						  <li style="width: 50%;text-align: center;margin-top: 0px;margin-bottom: 0px;">
+							<a data-toggle="tab" href="" data-content="tab-content-2" ng-click="onTabChange($event)" style="padding-left: 1px;padding-right: 1px;">
+							  <span style="color:rgb(0, 176, 240);">MEMBERS</span></a>
+						  </li>
+						</ul>
+					</header>
+					<div class="no-padding" role="content">
+						<div class="widget-body">
+						<!-- content -->
+							<div id="tab-content" class="tab-content" style="text-transform: none;">
+							
+							<div id="tab-content-1" class="tab-pane active" style="width:100%; height:526px">
+								<div style="background-image: url('img/building.jpg'); background-repeat: no-repeat;
+									background-position: center center;background-size: 100%;
+									    height: 100%; width: 100%;" />
+							</div>
+							<div id="tab-content-2" class="tab-pane active">
+								<div class="pagination pagination-centered" style="width: 100%; margin-top: 0px !important;">
+									<button class="btn" style="margin-top: 15px !important; 
+										margin-bottom:-10px !important;
+										background: #36739D;
+										border: 1px solid #36739D;
+										-webkit-box-shadow: inset 0 1px 2px #36739D;
+										-moz-box-shadow: inset 0 1px 2px #36739D;
+										box-shadow: inset 0 1px 2px #36739D;
+										font-size:18px;
+										width: 150px;
+										font-weight:bold;"
+										ng-click="GoToAddCompany()">Add Company</button>
+								</div>
+								<div>
+									<div class="sidebar-message" style="float: left;width: 100%;padding: 0;" ng-repeat="company in companies | limitTo: paginationLimit()" ng-click="GoToMemberDetail({{company}})">
+										<div class="pull-left text-center" ng-style="{'background-image': 'url(' + company.ImagePath + ')'}" style="
+											background-repeat: no-repeat;height: 113px;width: 110px;border-radius: 0%;
+											border-bottom: 1px solid #e3e3e3;border-right: 1px solid #e3e3e3;padding-top: 1px;background-position: center center;background-size: 100%;">
+										</div>
+										<div class="media-body" style="padding-left: 10px;border-bottom: 1px solid #e3e3e3;position: relative;height: 113px;">
+											<label style="padding-top: 40px;text-transform: uppercase;">{{company.Name}}</label>
+											<br>
+											<label style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;width: 100%;color: #888888;font-weight: normal;display: inline-block;position: absolute;padding-right: 15px;padding-bottom: 10px;">{{company.Country}}, {{company.City}}</label>
+										</div>
+									</div>
+								</div> 
+										
+								<div class="pagination pagination-centered" style="width: 100%; margin: 0px !important;">
+									<button class="show-more-btn btn" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">Load more</button>
+								</div>
+						</div>
+						</div>
+					</div>
+				</div>
+		  </article>
+		</div>
+		<!-- /.container -->
+	</div>
+	  <!-- /#page-content -->
+</div>

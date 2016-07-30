@@ -1,0 +1,81 @@
+<div class="contentHomeRegister" ng-controller="JobDetailViewController" ng-init="init()">	
+	<div class="container" style="padding: 0px;height: 616px;overflow-y: auto;background-color: #888888;">
+		<div class="row">
+			<div class="col-lg-3 col-sm-6" style="padding: 0px;">
+				<div class=" row card hovercard" style="position:relative;">
+					<div class="row row-1 cardheader" ng-style="{'background-image': 'url(' + urlImageBackgroundJob + ')'}" 
+						style="height: 200px;position:relative;background-size: 100%;background-position: center center;">
+					</div>
+					<div class="row row-2" style="
+						position: absolute;
+						background-color: gray;
+						padding: 5px;
+						top: 80px;
+						margin-left: 15px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+						width: 95%;
+						font-size: 18px;
+						color: white;
+						font-weight: bold;
+						text-align: left;
+					">{{job.Title}}</div>
+					<div class="row row-3" style="
+						position: absolute;
+						background-color: orange;
+						padding: 5px;
+						font-size: 14px;
+						top: 110px;
+						margin-left: 15px;
+						color: white;
+						text-transform: none;
+					">Posted on {{job.CreatedDate}}</div>
+				</div>
+                
+                <div class="row row-1" style="margin-left: 3%;margin-right: 3%;margin-top: 20px;background-color: white;text-transform: none;">
+					<div class="row row-1" style="  font-size: 16px;  height: 40px;  
+								border-bottom: 1px solid #888888;  text-align: center;  
+								vertical-align: middle;  padding-top: 3%;color: black;">JOB DESCRIPTION</div>
+					<div class="row row-2" style="padding: 15px 10px;color: black;">
+						Salary: <strong>{{job.Salary}}</strong><br />
+						{{job.Description}}
+					</div>
+				</div>
+                
+				<div class="row row-2" style="margin-left: 3%;margin-right: 3%;margin-top: 20px;background-color: white;text-transform: none;">
+                    <div class="row row-1" style="  font-size: 16px;  height: 40px;  
+								border-bottom: 1px solid #888888;  text-align: center;  
+								vertical-align: middle;  padding-top: 3%;color: black;">COMPANY INFORMATION</div>
+                    <div class="row row-2" style="height:210px;width:100%">
+						<div id="map" style="width:100%; height:100%"></div>
+                        <!--<div class="row row-1" style="font-weight: 700;font-size: 18px;padding: 15px;">
+                            {{job.Company}}
+                        </div>
+						<div class="row row-2" style="padding-left: 15px;color: #888888;font-size: 14px;padding-right:15px;">
+                            Location: {{job.Address}}, {{job.City}}
+                        </div>
+                        <div class="row row-3" style="font-size: 14px;padding: 15px; 
+								color: #932121;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+                            Website: {{job.Url}}
+                        </div>-->  
+                    </div>
+				</div>
+
+				<div class="pagination pagination-centered" style="width: 100%; margin: 0px !important;">
+					<button class="btn btn-login" style="text-transform: none;" ng-click="ApplyJob()">Apply</button>
+				</div>
+
+                <!--<div class="row row-3" style="margin-left: 3%;margin-right: 3%;margin-top: 20px;background-color: white;text-transform: none;">
+					<div class="row row-1" style="  font-size: 16px;  height: 40px;  
+								border-bottom: 1px solid #888888;  text-align: center;  
+								vertical-align: middle;  padding-top: 3%;color: black;">HOW TO APPLY FOR THIS JOB</div>
+					<div class="row row-2" style="padding: 15px;color: #3a87ad;">
+						Please contact with {{job.Email}} for more information or to apply to this position.
+					</div>-->
+				</div>
+				<!--<div class="row" style="background-color: #888888;height: 20px"></div>-->
+			</div>
+		</div>
+	</div>
+</div>

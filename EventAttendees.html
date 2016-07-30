@@ -1,0 +1,39 @@
+<div class="contentHomeRegister" ng-controller="EventAttendeesViewController" ng-init="init()">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav" style="margin-bottom: 0px;">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="row row-1" style="height:40px;">
+					<div style="text-align: center; color: white;font-size: 20px;">
+						Attendees
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--wrap the page content do not style this-->
+	<div id="page-content" style="padding-top: 0px;overflow-y: scroll;height: 565px;">
+		<div class="container" style="padding-left: 0px;padding-right: 0px;">
+			<div>
+				<div class="sidebar-message" style="float: left;width: 100%;padding: 0;" ng-repeat="job in jobs"><!--ng-click="GoToJobDetail({{job}})"-->
+					<div class="pull-left text-center" ng-style="{'background-image': 'url(' + job.Logo + ')'}" style="
+						background-repeat: no-repeat;height: 113px;width: 110px;border-radius: 0%;
+						border-bottom: 1px solid #e3e3e3;border-right: 1px solid #e3e3e3;padding-top: 1px;background-position: center center;background-size: 100%;" />
+					<div class="media-body" style="padding-left: 10px;border-bottom: 1px solid #e3e3e3;position: relative;height: 113px;">
+						<label style="text-transform: uppercase;padding-top: 5px;font-size: 16px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;position: absolute;width: 94%;">{{job.Company}}</label>
+						<br>
+						<label style="padding-top: 15px;text-transform: none;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;width: 94%;position: absolute;font-size: 16px;font-weight: normal;color: #888888;">{{job.Title}}</label>
+						<br>
+						<label style="padding-top: 25px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;width: 94%;color: #888888;font-weight: normal;position: absolute;text-transform: none;font-size: 16px;">{{job.Category}}</label>
+						<br>
+						<label style="float: right;font-weight: normal;font-size: 16px;padding-top: 40px;">
+							<small class="text-muted ng-binding" style="float: right;margin-right: 10px;">{{job.CreatedDate}}</small>
+						<label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /#page-content -->
+</div>
